@@ -8,11 +8,11 @@ This document is **NOT** for malicious porpouses.
 
 ## 📔 Notes and tools
 
-* [Information Gathering](infor_gathering.md)
+* [Information Gathering](info_gathering.md)
 * [Scanning & Enumeration](scan_enum.md)
 * [Exploitation](exploit.md)
 * [Exploit Development](exploit_dev.md)
 * [Web-App Enumeration](web-app_enum.md)
 * [Wireless Penetration Testing](wireless.md)
-* [Password Cracking](pass_crack.md)
+* [Password Cracking](passwd_crack.md)
 * [Shells & Reverse Shells](shells.md)
