@@ -13,7 +13,7 @@
 	}
 	```
 	
-	-   bin/sh:
+-   bin/sh:
 	```c
 	int main(void){
 
