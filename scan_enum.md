@@ -18,10 +18,15 @@ nmap -sC -v -sV -oA nmap/x x.x.x.x
 ```
 -  Nmap script to scan for vulnerable SMB servers – WARNING: unsafe=1 may cause knockover
 
-```sql
+	```sql
 	nmap –script smb-check-vulns.nse –script-args=unsafe=1 -p445 \[host\]
-```
+	```
 
+- Network Sweeping
+
+	```bash
+	nmap -sn 10.11.1.1-254 -oG greppable-output.txt
+	```
 
 ## **FTP Enumeration(21):**
 ```sql
