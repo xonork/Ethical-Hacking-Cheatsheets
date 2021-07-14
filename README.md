@@ -10,10 +10,8 @@ This document is **NOT** for malicious porpouses.
 
 * [Information Gathering](info_gathering.md)
 * [Scanning & Enumeration](scan_enum.md)
-* [Exploitation](exploit.md)
-* [Post Exploitation](post.md)
 * [Exploit Development](exploit_dev.md)
-* [Web-App Enumeration](web-app_enum.md)
+* [Post Exploitation](post.md)
 * [Wireless Penetration Testing](wireless.md)
 * [Password Cracking](passwd_crack.md)
 * [Shells & Reverse Shells](shells.md)
