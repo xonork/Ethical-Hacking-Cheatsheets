@@ -5,8 +5,8 @@
 - Google Hacking: *site*, *filetype*, *inurl*, *intitle*
 - [Google Hacking (GHDB)]([https://www.exploit-db.com/google-hacking-database)
 -  Email Harvesting
-	```bash
-	the harvester -d cisco.com -b google
+	```sql
+	theHarvester -d cisco.com -b google
 	```
 - Netcraft
 - whois
