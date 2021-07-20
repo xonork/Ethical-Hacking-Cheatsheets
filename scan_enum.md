@@ -12,6 +12,10 @@
 	```sql
 	nmap -v -sS -A -T4 x.x.x.x
 	```
+- Enum all TCP ports.
+	```sql
+	nmap -sT -p- --min-rate 5000 -oA nmap/alltcp 10.10.10.76
+	```
 
 ```sql
 nmap -sC -v -sV -oA nmap/x x.x.x.x
