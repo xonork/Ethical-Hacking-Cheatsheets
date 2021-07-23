@@ -3,7 +3,7 @@
 ## **Passive Information Gathering:**
 
 - Google Hacking: *site*, *filetype*, *inurl*, *intitle*
-- [Google Hacking (GHDB)]([https://www.exploit-db.com/google-hacking-database)
+- [Google Hacking (GHDB)](https://www.exploit-db.com/google-hacking-database)
 -  Email Harvesting
 	```sql
 	theHarvester -d cisco.com -b google
