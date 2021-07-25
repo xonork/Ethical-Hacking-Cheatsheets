@@ -15,3 +15,4 @@ This document is **NOT** for malicious porpouses.
 * [Wireless Penetration Testing](wireless.md)
 * [Password Cracking](passwd_crack.md)
 * [Shells & Reverse Shells](shells.md)
+* [Miscellaneous](misc.md)
