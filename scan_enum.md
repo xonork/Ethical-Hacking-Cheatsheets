@@ -105,6 +105,7 @@ nmap -sC -v -sV -oA nmap/x x.x.x.x
 - **whatweb**
 - **[wappalyzer](https://addons.mozilla.org/es/firefox/addon/wappalyzer)**
 - **Assetfinder**
+- **wpscan**
 
 
 ## **Pop3 (110):**
