@@ -1,4 +1,4 @@
--RCE and RFI via PHP 
+- RCE and RFI via PHP 
   ```php
     <?php 
       if (isset($_REQUEST['fupload'])) {
@@ -9,3 +9,17 @@
       }	
     ?>
   ```
+- mkt script, to create a pentesting folder environment
+  ```bash
+    #!/bin/bash
+    if [[ $# -eq 1 ]]; then
+      mkdir -p $1/{nmap,content,exploits,scripts}
+      exit 0
+    else
+      echo "The name of the folder is needed"
+      exit 1
+    fi
+  ```
+
+
+  
