@@ -12,6 +12,9 @@
 - whois
 - recon-ng
 
+### Security Headers
+
+- [Security Headers](https://securityheaders.com/)
 ###  **Github:**
 
 - Gitrob
