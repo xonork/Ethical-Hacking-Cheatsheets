@@ -12,6 +12,12 @@
 - whois
 - recon-ng
 
+###  **Github:**
+
+- Gitrob
+- Gitleacks
+- recon-ng \[Most of the modules related with GitHub require an access token\]
+
 ## **Active Information Gathering:**
 - **DNS Enum:**
 	```bash
