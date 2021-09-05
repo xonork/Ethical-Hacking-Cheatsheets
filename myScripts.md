@@ -10,3 +10,15 @@ for i in {1..254}; do
     fi
 done 
 ```
+
+## JS Extract
+```bash
+#!/bin/bash
+
+if [[ $# -ne 1 ]]; then
+    echo "Usage: ./js-extract.sh file.txt"
+    exit 2
+else
+    cat $1 | grep "[^\/]*\.js" -o | sort -ud
+fi 
+```
