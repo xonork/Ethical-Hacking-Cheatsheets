@@ -11,7 +11,7 @@
 - Netcraft
 - whois
 - recon-ng
--[Pastebin](https://pastebin.ga/)
+- [Pastebin](https://pastebin.ga/)
 ### Server Security
 
 - [Security Headers](https://securityheaders.com/)
