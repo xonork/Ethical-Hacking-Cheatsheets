@@ -11,10 +11,11 @@
 - Netcraft
 - whois
 - recon-ng
-
-### Security Headers
+-[Pastebin](https://pastebin.ga/)
+### Server Security
 
 - [Security Headers](https://securityheaders.com/)
+- [SSL Server Test](https://www.ssllabs.com/ssltest/)
 ###  **Github:**
 
 - Gitrob
