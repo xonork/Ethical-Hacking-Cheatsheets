@@ -12,9 +12,13 @@
 	```sql
 	nmap -v -sS -A -T4 x.x.x.x
 	```
-- Enum all TCP ports.
+- Enum all TCP ports (lot ofo noise, preferably -sS).
 	```sql
-	nmap -sT -p- --min-rate 5000 -oA nmap/alltcp 10.10.10.76
+	nmap -sT -sS -p- --min-rate 5000 -oA nmap/alltcp 10.10.10.76
+	```
+- UDP and TCP SYN scan
+	```sql
+	nmap -sU -sS 10.10.10.76
 	```
 
 ```sql
@@ -39,16 +43,16 @@ nmap -sC -v -sV -oA nmap/x x.x.x.x
 
 
 ## **SMTP Enumeration (25):**
- ```sql
+#### **The protocol supports commands such as VRFY and EXPN**
+ ```bash
     nmap –script smtp-commands,smtp-enum-users,smtp-vuln-cve2010-4344,smtp-vuln-cve2011-1720,smtp-vuln-cve2011-1764 -p 25 10.0.0.1
  ```
 
-
-```sql
+```bash
     nc -nvv INSERTIPADDRESS 25
 ```
 
- ```
+ ```bash
     telnet INSERTIPADDRESS 25
  ```
 
@@ -137,22 +141,14 @@ nmap -sC -v -sV -oA nmap/x x.x.x.x
 	```sql
 	   QUIT
 	```
-	
-	
-## **RPCBind (111):**	
 
-```sql
-rpcinfo –p x.x.x.x   
-```
-
-
-## **SMB\\RPC Enumeration (139/445):**
+## **SMB Enumeration (139/445):**
 
 ```sql
 enum4linux –a 10.0.0.1
 ```
 
--   Discover Windows / Samba servers on subnet, finds Windows MAC addresses, netbios name and discover client workgroup / domain
+- Discover Windows / Samba servers on subnet, finds Windows MAC addresses, netbios name and discover client workgroup / domain
 	```sql
 	nbtscan x.x.x.x
 	```
@@ -170,7 +166,7 @@ python /usr/share/doc/python-impacket-doc/examples/samrdump.py 192.168.XXX.XXX
 nmap IPADDR --script smb-enum-domains.nse,smb-enum-groups.nse,smb-enum-processes.nse,smb-enum-sessions.nse,smb-enum-shares.nse,smb-enum-users.nse,smb-ls.nse,smb-mbenum.nse,smb-os-discovery.nse,smb-print-text.nse,smb-psexec.nse,smb-security-mode.nse,smb-server-stats.nse,smb-system-info.nse,smb-vuln-conficker.nse,smb-vuln-cve2009-3103.nse,smb-vuln-ms06-025.nse,smb-vuln-ms07-029.nse,smb-vuln-ms08-067.nse,smb-vuln-ms10-054.nse,smb-vuln-ms10-061.nse,smb-vuln-regsvc-dos.nse
 ```
 
--   List open shares
+- List open shares
 	```sql
 	smbclient -L //INSERTIPADDRESS/
 	```
@@ -179,13 +175,53 @@ nmap IPADDR --script smb-enum-domains.nse,smb-enum-groups.nse,smb-enum-processes
 smbclient //INSERTIPADDRESS/ipc$ -U john
 ```
 
+##  NFS Enumeration (111)
+```bash
+nmap -sV -p 111 --script=rpcinfo 10.10.10.2
+```
 
+```bash
+nmap -p 111 --script nfs* 10.10.10.2
+```
+
+```bash
+rpcinfo –p x.x.x.x   
+```
+
+- Mount shared directories
+	```bash
+	sudo mount -o nolock 10.10.10.2:/home ~/new-folder
+	```
 ### **SNMP Enumeration (161):**
+```bash
+sudo nmap -sU --open -p 161 10.10.10.1 -oG open-snmp.txt
+```
+```bash
+onesixtyone -c [snmp community strings worlist] -i [Ip's list]
 
 ```sql
-snmpwalk -c public -v1 10.0.0.0
+snmpwalk -c [specify the community string] -v1 -t 10 10.0.0.2
 ```
-    
+- Enumerate Windows users
+	```bash
+	snmpwalk -c public -v1 10.10.10.2 1.3.6.1.4.1.77.1.2.25
+	#The las string provided is a SNMP OID
+	```
+- Enumerate Running WIndows Processes
+	```bash
+	snmpwalk -c public -v1 10.10.10.2 1.3.6.1.2.1.25.4.2.1.2
+	```
+- Enumerate Open TCP Ports
+	```bash
+	snmpwalk -c public -v1 10.10.10.2 1.3.6.1.2.1.6.13.1.3
+	```
+- Enumerate Installed Software
+	```bash
+	snmpwalk -c public -v1 10.10.10.2 1.3.6.1.2.1.25.6.3.1.2
+- Enumerate OIDs available in a host
+	```bash
+	snmpwalk -v 2c -c public 10.10.10.2
+	```
 ```sql
 snmpcheck -t 192.168.1.X -c public
 ```
@@ -193,11 +229,7 @@ snmpcheck -t 192.168.1.X -c public
 ```sql
 onesixtyone -c names -i hosts
 ```
-    
-```sql
-nmap -sT -p 161 192.168.X.X -oG snmp_results.txt
-```
-    
+
 ```sql
 snmpenum -t 192.168.1.X
 ```
