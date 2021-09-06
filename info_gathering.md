@@ -27,19 +27,22 @@
 
 ## **Active Information Gathering:**
 - **DNS Enum:**
-	```bash
-	host -t [QUERY TYPE] evilcorp.com
-	```
-	
-	```bash
-	host -l <domain-name> <dns-server-ip>
-	```
+```bash
+host -t [QUERY TYPE] evilcorp.com
+```
 
+```bash
+host -l <domain-name> <dns-server-ip>
+```
+- Trying Zone Transfer
 	```bash
 	dnsrecon -d evilcorp.com -t axfr
 	```
-	
+- Bruteforcing SubDomains
 	```bash
-	dnsenum evilcorp.com
+	dnsrecon -d evilcorp.com -D [path to wordlist] -t brt
 	```
+```bash
+dnsenum evilcorp.com
+```
 	
