@@ -2,7 +2,7 @@
 
 In this documenht I will post my infosec tools and notes. I will cover the different areas of cibersecurity, including password cracking, obfuscation and exploit development.
 
-The document is in English, this way is more accessible for everyone.
+The document is in English, this way is more accessible.
 
 This document is **NOT** for malicious porpouses.
 
