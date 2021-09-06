@@ -196,12 +196,15 @@ rpcinfo –p x.x.x.x
 ```bash
 sudo nmap -sU --open -p 161 10.10.10.1 -oG open-snmp.txt
 ```
+
 ```bash
 onesixtyone -c [snmp community strings worlist] -i [Ip's list]
+```
 
 ```sql
 snmpwalk -c [specify the community string] -v1 -t 10 10.0.0.2
 ```
+
 - Enumerate Windows users
 	```bash
 	snmpwalk -c public -v1 10.10.10.2 1.3.6.1.4.1.77.1.2.25
