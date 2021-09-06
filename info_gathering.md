@@ -12,6 +12,9 @@
 - whois
 - recon-ng
 - [Pastebin](https://pastebin.ga/)
+- [Socia-Searcher](https://www.social-searcher.com)
+- Twofi
+- linkedin2username
 ### Server Security
 
 - [Security Headers](https://securityheaders.com/)
