@@ -20,8 +20,12 @@
       exit 1
     fi
   ```
-<br>
-
+- Execute PHP from another file
+  ```php
+  <?php
+      $file = $_GET["file"];
+      include $file; ?>
+    ```
 
   
   
