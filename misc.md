@@ -27,12 +27,12 @@
       include $file; ?>
     ```
 
-  - Compile **C** binaries with Windows dependences with **mingw-64**
+- Compile **C** binaries with Windows dependences with **mingw-64**
   ```bash
   i686-w64-mingw32-gcc 42341.c -o syncbreeze_exploit.exe -lws2_32
   ```
   
-  - Run cross-compiled binary (binary compiled to run in Windows):
+- Run cross-compiled binary (binary compiled to run in Windows):
   ```bash
   wine exploit.exe
   ```
