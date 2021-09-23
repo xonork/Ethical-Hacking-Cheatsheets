@@ -87,6 +87,8 @@ nmap -sC -v -sV -oA nmap/x x.x.x.x
 	```
 			
 - **Whois**
+- **Take screenshots of websites**
+	- *eyewitness*
 - **nslookup**
 - **dnsrecon**
 - **Google Fu**
