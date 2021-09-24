@@ -142,6 +142,66 @@
     ```bash
     uname -a
     ```
+  - Running Processes and Services
+    ```bash
+    ps aux
+    ```
+  - Network information
+    ```bash
+    ifconfig a
+    ```
+    ```bash
+    ip a
+    ```
+    ```bash
+    /sbin/route
+    ```
+    ```bash
+    /sbin/outel
+    ```
+    ```bash
+    netstat
+    ```
+    ```bash
+    ss
+    ```
+  - Firewall Status and Rules
+    ```bash
+    iptables #we must be root :(
+    ```
+    ```bash
+    cat /etc/iptables #sometimes regular users have access to this file
+    ```
+    - We can even search in **/etc** directory, the administrator could have used **iptables-save** (which dumps the firewall configuration to a file specified by the user.
+
+  - Scheduled Tasks
+    - Scheduled tasks are listed under the **/etc/cron.* directories.
+    - Sometimes administrators add their scheduled tasks in the **/etc/crotab** file.
+
+   - Installed Applications and Patch Levels
+    ```bash
+    dpkg -l
+    #Debian-based Linux
+    ```
+    ```bash
+    rpm -l
+    #RedHat-based Linux
+    ```
+  - Readable/Writable Files and Directories
+    ```bash
+    find / -writable -type d 2>/deb/null
+    ```
+  - Unmounted Disks
+    ```bash
+    mount
+    ```
+    ```bash
+    cat /etc/fstab
+    #Lists all drives that will be mounted at boot time
+    ```
+    ```bash
+    /bin/lsblk
+    ```
     
 - **Automated**
   - https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/
@@ -169,9 +229,52 @@
     ```bash
     systeminfo | findstr /B /C:"OS Name" /C:"OS Version" /C:"System Type"
     ```
-    
-  
+  - Running Processes and Services
+    ```bash
+    tasklist /SVC
+    ```
+  - Network information
+    ```bash
+    ipconfig /all
+    ```
+    ```bash
+    route print
+    ```
+    ```bash
+    netstat -ano
+    ```
+  - Firewall Status and Rules
+    ```bash
+    netsh advfirewall show currentprofile
+    ```
+    ```bash
+    netsh advfirewall show rule name=all
+    ```
+  - Scheduled Tasks
+    ```bash
+    schtasks /query /fo LIST /v
+    ```
+  - Installed Applications and Patch Levels
+    ```bash
+    wmic product get name, version, vendor
+    #Lists software installed by the Microsoft Installer
+    ```
+    ```bash
+    wmic qfe get Caption, Description, HotFixID, InstalledOn
+    ```
+  - Readable/Writable Files and Directories
+    ```bash
+    accesschk.exe -uws "Everyone" "C:\Program Files"
+    ```
+    ```bash
+    Get-ChildItem "C:\Program Files" -Recurse | Get-ACL | ?{$_.AccessToString -match "Everyone\sAllow\s\sModify"}
+    ```
+  - Unmounted Disks
+    ```bash
+    mountvol
+    ```
 
+    
 - **Automated**
   - [PowerSploit's Power Up](https://github.com/PowerShellMafia/PowerSploit)
   - [Watson](https://github.com/rasta-mouse/Watson)
