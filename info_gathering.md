@@ -17,6 +17,7 @@
 - [Socia-Searcher](https://www.social-searcher.com)
 - Twofi
 - linkedin2username
+- breach-parse
 ### Server Security
 
 - [Security Headers](https://securityheaders.com/)
