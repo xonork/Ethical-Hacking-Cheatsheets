@@ -200,7 +200,20 @@
     #Lists all drives that will be mounted at boot time
     ```
     ```bash
+    #Lists loaded kernel modules
     /bin/lsblk
+    ```
+   - Device Drivers and Kernel Modules
+    ```bash
+    lsmod
+    ```
+    ```bash
+    /sbin/modinfo [module name]
+    ```
+  - Binaries That AutoElevate
+    - Normally, when running an executable, it inherits the permissions of the user that runs it. However, if the SUID permissions are set. the binary will run with the permissions of the file owner. This means that if a binary has the SUID bit set and the file is owned by root, any local user will be able to execute that binary with elevated privileges.
+    ```bash
+    find / -perm -u=s -type f 2>/dev/null
     ```
     
 - **Automated**
@@ -273,7 +286,22 @@
     ```bash
     mountvol
     ```
-
+  - Device Drivers and Kernel Modules
+    ```bash
+    #In powershell
+    driverquery.exe /v /fo csv | ConvertFrom-CSV | Select-Object 'Display Name', 'Start Mode', Path
+    ```
+    ```bash
+    #In powershell
+    Get-WmiObject Win32_PnPSignedDriver | Select-Object DeviceName, DriverVersion, Manufacturer | Where-Object {$_.DeviceName -like "VMware*"}
+  - Binaries That AutoElevate
+    - In Windows systems, we should check the status of the *AlwaysInstallElevated* registry setting. If this key is enabled (set to 1) in either *HKEY_CURRENT_USER* or *HKEY_LOCAL_MACHINE*, any user can run Windows Installer packages with elevated privileges. If rhis setting is enabled, we could craft an *MSI* file and run it to elevate privileges.
+    ```bash
+    reg query HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Installer
+    ```
+    ```bash
+    reg query HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Installer
+    ```
     
 - **Automated**
   - [PowerSploit's Power Up](https://github.com/PowerShellMafia/PowerSploit)
