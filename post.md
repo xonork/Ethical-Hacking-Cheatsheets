@@ -234,6 +234,9 @@
     net user <USER>
     ```
     It gaves us more information about the target as which groups the user belongs to.
+    ```bash
+    whoami /priv
+    ```
   - Discover more users
     ```bash
     net user
