@@ -19,6 +19,12 @@
 - httprobe
 - linkedin2username
 - breach-parse
+- https://github.com/BullsEye0/dorks-eye
+- Censys
+- Hunter.io
+- Carrot2
+- DarkWeb
+- Dorks-eye
 ### Server Security
 
 - [Security Headers](https://securityheaders.com/)
