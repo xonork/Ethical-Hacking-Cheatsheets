@@ -1,3 +1,4 @@
 - pwndb2: http://pwndb2am4tzkvold.onion/
 -  UnderDir: http://underdiriled6lvdfgiw4e5urfofuslnz7ewictzf76h4qb73fxbsxad.onion/
 - GreySec (Hacking Forum): http://ytxmrc3pcbv5464e.onion/
+- PirateBay: http://piratebayztemzmv.onion
