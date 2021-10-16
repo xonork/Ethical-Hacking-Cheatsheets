@@ -225,6 +225,7 @@
   - [LinuxPrivChecker](https://github.com/sleventyeleven/linuxprivchecker)
   - [Unix Privesc Check](https://github.com/pentestmonkey/unix-privesc-check)
   - [Privilage Escalation through sudo](https://github.com/TH3xACE/SUDO_KILLER)
+  - [GTFOBins](https://gtfobins.github.io/)
 
 ### **Windows**
 
