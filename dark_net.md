@@ -27,4 +27,7 @@
 - The Onion Web: http://onionwsoiu53xre32jwve7euacadvhprq2jytfttb55hrbo3execodad.onion/ (Noticias según categoria)
 - The Hub: http://thehubmcwyzwijjoqvdtpmu36npcueypjbgnvbqz4jliwjmmnpfkzkqd.onion/ (Foro)
 - Torch: http://xmh57jrknzkhv6y3ls3ubitzfqnkrwxhopf5aygthi7d6rplyvk3noyd.onion/cgi-bin/omega/omega (Buscador)
-
+- OnionLinks: http://s4k4ceiapwwgcm3mkb6e4diqecpo7kvdnfr5gg7sph7jjppqkvwwqtyd.onion/ (Links de Hidden Wikis)
+- Hidden Wiki: http://paavlaytlfsqyvkg3yqj7hflfg5jw2jdg2fgkza5ruf6lplwseeqtvyd.onion/ 
+- Defcon: http://g7ejphhubv5idbbu3hb3wawrs5adw7tkx7yjabnf65xtzztgg4hcsqqd.onion/ (Foro Hacker)
+- Infocon: http://w27irt6ldaydjoacyovepuzlethuoypazhhbot6tljuywy52emetn7qd.onion/ (Foro Hacker)
