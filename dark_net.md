@@ -2,3 +2,29 @@
 -  UnderDir: http://underdiriled6lvdfgiw4e5urfofuslnz7ewictzf76h4qb73fxbsxad.onion/
 - GreySec (Hacking Forum): http://ytxmrc3pcbv5464e.onion/
 - PirateBay: http://piratebayztemzmv.onion
+- Burn Privacy: http://tabe66om7ikjspiobt3tfnj3mn2t4yklbzbmpmquu75dceyd7mxv7kqd.onion/ (Permite usar sus teléfonos móviles para enviar mensajes. También se pueden hacer correos fake
+- DarknetLive: http://darkzzx4avcsuofgfez5zq75cqc4mprjvfqywo45dfcaxrwqg6qrlfid.onion/onions/ (Portal con noticias y también con links a otros .onions interesantes)
+- AnonyMixer: http://btcmixer2e3pkn64eb5m65un5nypat4mje27er4ymltzshkmujmxlmyd.onion/ (Permite enviar bitcoin de manera segura)
+- Antinalysis: http://pdcdvggsz5vhzbtxqn2rh27qovzga4pnrygya4ossewu64dqh2tvhsyd.onion/ (Blockchain segura)
+- Archive.org: http://archiveiya74codqgiixo33q62qlrqtkgmcitqx5u2oeqnmn5bpcbiyd.onion/ (Archivo donde hay versiones antiguas de webs)
+- Cryptostamps: http://lgh3eosuqrrtvwx3s4nurujcqrm53ba5vqsbim5k5ntdpo33qkl7buyd.onion/ (Compra de sellos con criptos)
+- Cyph: https://www.cyphdbyhiddenbhs.onion/ (Chats seguros)
+- DarkIndex: http://darkindex5pin6jb.onion/ (Webs seguras)
+- DarkNet Trust: http://dntrustmuq5ccf3lygrnhsprpdliakq7r2ljsspczmdsslj5wl4teeid.onion/ (Anti-Phishing)
+- Digital Thrift Shop: http://kw4zlnfhxje7top26u57iosg55i7dzuljjcyswo2clgc3mdliviswwyd.onion/ (Mercado con software)
+- Elude Mail: http://eludemailxhnqzfmxehy3bk5guyhlxbunfyhkcksv4gvx6d3wcf6smad.onion/
+- Endchan: http://enxx3byspwsdo446jujc52ucy2pf5urdbhqw3kbsfhlfjwmbpj5smdad.onion
+- Helium: http://fahue6hb7odzns36vfoi2dqfvqvjq4btt7vo52a67jivmyz6a6h3vzqd.onion/ (Foro Seguridad)
+- Keybase: http://keybase5wmilwokqirssclfnsqrjdsi7jdir5wy7y7iu3tanwmtp6oid.onion/ (Mensajería y compartición de datos segura)
+- Nanochan: http://nanochanqzaytwlydykbg5nxkgyjxk3zsrctxuoxdmbx5jbh2ydyprid.onion/ (Foro diverso)
+- NeinChan. http://tdsrvhos656xypxsqtkqmiwefuvlyqmnvk5faoo23oh2m4xqg4gr47ad.onion/ (Foro un poco Nazi)
+- Njalla: njalladnspotetti.onion
+- Onion Search Engine: http://5u56fjmxu63xcmbk.onion/
+- DisrupTor: (Poner orden en Tor)
+- Raptor: http://raptora2y6r3bxmjcd3xglr3tcakc6ezq3omyzbnvwahhpi27l3w4yad.onion/ (Mercados de confianza)
+- Recon: http://recon222tttn4ob7ujdhbn3s4gjre7netvzybuvbq2bcqwltkiqinhad.onion/ (Comparador de productos)
+- TITAN-XMPP: http://titanxsu7bfd7vlyyffilprauwngr4acbnz27ulfhyxrqutu7atyptad.onion/ (Comunicación segura)
+- The Onion Web: http://onionwsoiu53xre32jwve7euacadvhprq2jytfttb55hrbo3execodad.onion/ (Noticias según categoria)
+- The Hub: http://thehubmcwyzwijjoqvdtpmu36npcueypjbgnvbqz4jliwjmmnpfkzkqd.onion/ (Foro)
+- Torch: http://xmh57jrknzkhv6y3ls3ubitzfqnkrwxhopf5aygthi7d6rplyvk3noyd.onion/cgi-bin/omega/omega (Buscador)
+
