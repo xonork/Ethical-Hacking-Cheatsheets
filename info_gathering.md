@@ -4,6 +4,7 @@
 
 - Google Hacking: *site*, *filetype*, *inurl*, *intitle*
 - [Google Hacking (GHDB)](https://www.exploit-db.com/google-hacking-database)
+- [bugmenot](http://bugmenot.com/view/raidforums.com)
 - intelx.io
 - pastebin
 -  Email Harvesting
