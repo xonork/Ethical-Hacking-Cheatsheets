@@ -176,7 +176,9 @@ nmap IPADDR --script smb-enum-domains.nse,smb-enum-groups.nse,smb-enum-processes
 ```sql
 smbclient //INSERTIPADDRESS/ipc$ -U john
 ```
-
+```sql
+smbmap -H 10.10.10.237 -u xonork
+```
 ##  NFS Enumeration (111)
 ```bash
 nmap -sV -p 111 --script=rpcinfo 10.10.10.2
