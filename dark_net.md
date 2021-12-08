@@ -1,7 +1,7 @@
 - pwndb2: http://pwndb2am4tzkvold.onion/
 -  UnderDir: http://underdiriled6lvdfgiw4e5urfofuslnz7ewictzf76h4qb73fxbsxad.onion/
 - GreySec (Hacking Forum): http://ytxmrc3pcbv5464e.onion/
-- PirateBay: http://piratebayztemzmv.onion
+- PirateBay: piratebayo3klnzokct3wt5yyxb2vpebbuyjl7m623iaxmqhsd52coid.onion
 - Burn Privacy: http://tabe66om7ikjspiobt3tfnj3mn2t4yklbzbmpmquu75dceyd7mxv7kqd.onion/ (Permite usar sus teléfonos móviles para enviar mensajes. También se pueden hacer correos fake
 - DarknetLive: http://darkzzx4avcsuofgfez5zq75cqc4mprjvfqywo45dfcaxrwqg6qrlfid.onion/onions/ (Portal con noticias y también con links a otros .onions interesantes)
 - AnonyMixer: http://btcmixer2e3pkn64eb5m65un5nypat4mje27er4ymltzshkmujmxlmyd.onion/ (Permite enviar bitcoin de manera segura)
