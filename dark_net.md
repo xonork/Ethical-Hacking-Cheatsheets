@@ -1,5 +1,6 @@
+- dread: http://dread5pjihquldyuc4s47yrjqm5ozkpk55mbyfwtqfgqvmycw4dqpnqd.onion/d/hacking
 - pwndb2: http://pwndb2am4tzkvold.onion/
--  UnderDir: http://underdiriled6lvdfgiw4e5urfofuslnz7ewictzf76h4qb73fxbsxad.onion/
+- UnderDir: http://underdiriled6lvdfgiw4e5urfofuslnz7ewictzf76h4qb73fxbsxad.onion/
 - GreySec (Hacking Forum): http://ytxmrc3pcbv5464e.onion/
 - PirateBay: piratebayo3klnzokct3wt5yyxb2vpebbuyjl7m623iaxmqhsd52coid.onion
 - Burn Privacy: http://tabe66om7ikjspiobt3tfnj3mn2t4yklbzbmpmquu75dceyd7mxv7kqd.onion/ (Permite usar sus teléfonos móviles para enviar mensajes. También se pueden hacer correos fake
