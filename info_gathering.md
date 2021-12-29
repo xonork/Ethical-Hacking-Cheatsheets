@@ -6,6 +6,7 @@
 - [Google Hacking (GHDB)](https://www.exploit-db.com/google-hacking-database)
 - [bugmenot](http://bugmenot.com/view/raidforums.com)
 - intelx.io
+- https://phonebook.cz/
 - pastebin
 -  Email Harvesting
 	```sql
