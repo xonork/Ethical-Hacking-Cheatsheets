@@ -1,1 +1,0 @@
-# Sock Puppets
