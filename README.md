@@ -14,7 +14,7 @@ In this section you will find different OSINT tools. This tools are divided in t
 ## 📡 [Scanning & Enumeration](scan_enum.md)
 Here we have different tools and methods that will help us to enumerate the network (*nmap*) or a specific service such as FTP.
 
-## 💻 [Webapp Methology](web_Methology.md)**
+## 💻 [Webapp Methology](web_Methology.md)
 A short list of which steps to follow when performing a pentest on a webapp.
 
 ## 🚩 [Post Exploitation](post.md)
