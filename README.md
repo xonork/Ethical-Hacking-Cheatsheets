@@ -1,8 +1,8 @@
-# 📕 Infosec Notes
+# 🗒️ Ethical Hacking Cheatsheets
 
-In this documenht I will post my infosec tools and notes. I will cover the different areas of cibersecurity, including password cracking, obfuscation and exploit development (BOFs for noobies like me).
+In this documenht I will post my **Ethical** Hacking cheatsheets. It covers the different areas of **Ethical** Hacking, including password cracking, obfuscation and exploit development (BOFs for noobies like me).
 
-⚠️ The document is not finished, I have to add a lot more of content. Also, the CyberSecurity area is always evolving, which means that is always generating new knowledge, for this reason this document will never be finished. ⚠️
+⚠️ The document is not finished, I have to add a lot more of content and sort everything in a better way. Also, the CyberSecurity area is always evolving, which means that is always generating new knowledge, for this reason this document will never be finished. ⚠️
 
 This document is **NOT** for malicious porpouses.
 
@@ -21,6 +21,9 @@ A short list of which steps to follow when performing a pentest on a webapp.
 After we have enumerate, exploit a service and gain control of the target machine, we will need two priordial things:
 - Upload/Download files to/from the target machine.
 - Detect possible privilege escalation vectors such as *Juicy Potato* in Windows or a vulnerable *cron job* in Linux.
+
+## ⬛ [AV Evasion]
+Different AV evasion techniques explained.
 
 ## 🐚 [Shells & Reverse Shells](shells.md)
 Here you will find a list of useful reverse shells done with different coding languages. The big part of them are made as *one line*.
