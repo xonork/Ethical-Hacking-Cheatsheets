@@ -14,9 +14,13 @@ In this section you will find different OSINT tools. This tools are divided in t
 ## 📡 [Scanning & Enumeration](scan_enum.md)
 Here we have different tools and methods that will help us to enumerate the network (*nmap*) or a specific service such as FTP.
 
+## 💻 [Webapp Methology](web_Methology.md)**
+A short list of which steps to follow when performing a pentest on a webapp.
+
 ## 🚩 [Post Exploitation](post.md)
-After we have enumerate, exploit a service and gain control of the target machine, we will need to upload files to the compromised machine for persistance or to make privilege escalation. So, here you will find different techniques to Upload/Download files to/from a target machine.
-Also, in this section you will find different tools to detect possible privilege escalation vectors such as *Juicy Potato* in Windows or a vulnerable *cron job* in Linux.
+After we have enumerate, exploit a service and gain control of the target machine, we will need two priordial things:
+- Upload/Download files to/from the target machine.
+- Detect possible privilege escalation vectors such as *Juicy Potato* in Windows or a vulnerable *cron job* in Linux.
 
 ## 🐚 [Shells & Reverse Shells](shells.md)
 Here you will find a list of useful reverse shells done with different coding languages. The big part of them are made as *one line*.
