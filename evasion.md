@@ -50,8 +50,7 @@ We will use **Avira AV** in our Windows vitmim machine.
 - PowerShell In-Memory Injection
 Depending on our target environment, we might be able to bypass AV products with the help of PowerShell
 
-A very powerful feature of PowerShell is its ability to interact with the Windows API. This allows us to implement in-memory injection process in a PowerShell script. One of the 
-main benefits of executing a script rather than PE is the fact that is not difficult for AV manufacters to determine if the script is malicious or not as it's run inside an interpreter
+A very powerful feature of PowerShell is its ability to interact with the Windows API. This allows us to implement in-memory injection process in a PowerShell script. One of the main benefits of executing a script rather than PE is the fact that is not difficult for AV manufacters to determine if the script is malicious or not as it's run inside an interpreter
 and the script itself isn't executable code. 
 
 Furthermore, even if the script is marked as malicious, it can easily be altered. AV software will often look at variable names, comments, and logic, all of which can be changed
@@ -94,7 +93,10 @@ Missing from the script is the payload of our choice, which can be generated usi
  
  ## Tools
  
- - shellter
+ - shellter: It is a dynamic shellcode injection tool, and the first truly dynamic PE (portable executable) infector ever created.
+ - DSplit: It splits an executable in order to detect AV Signatures. This way we can remove them and execute the file on the target machine.
+ - py2exe: This tool allow us to convert a Python script into an executable.
+ - Veil: It is a tool designed to generate payloads that bypass common anti-virus solutions.
 
 
 
