@@ -91,6 +91,7 @@
 
 ### Webapp OSINT
 - Google Dorking
+- Google -> Cached Websites 
 - Wappalizer
 - https://builtwith.com/ (More completed wappalizer)
 - https://centralops.net/co/ (WHOIS record, nmap scan..)
@@ -111,6 +112,8 @@
 - https://crt.sh/ (% is the wildcard; %.tesla.com)
 - Netcraft
 
+### Network OSINT
+- [Shodan](https://www.shodan.io/)
 
 ### Server Security
 
