@@ -1,3 +1,6 @@
+# Wordlists
+[https://oxasploits.com/posts/wordlists-reprise/](https://oxasploits.com/posts/wordlists-reprise/)
+
 # Password Cracking
 
 ```sql
