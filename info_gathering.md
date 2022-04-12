@@ -15,6 +15,9 @@
 - https://github.com/BullsEye0/dorks-eye
 - DarkWeb
 
+### Sock Puppet
+- genware.es
+- 
 ### Identify Geographical Locations
 - Google Image Search
 - Yandex
