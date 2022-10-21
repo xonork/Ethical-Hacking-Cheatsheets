@@ -273,6 +273,10 @@ dig axfr blah.com @ns1.blah.com
 ```sql
 dnsrecon -d TARGET -D /usr/share/wordlists/dnsmap.txt -t std --xml ouput.xml
 ```
+```sql
+fierce --domain test.com --dns-servers [DNS-IP]
+```
+
 
 
 ## **Mounting File Share**
