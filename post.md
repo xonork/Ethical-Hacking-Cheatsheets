@@ -294,6 +294,10 @@
     ```bat
     wmic service O get name,displayname,pathname,startmode
     ```
+  - Services automatically strarted
+    ```bat
+    wmic service get name,displayname,pathname,startmode | findstr /i "auto"
+    ```
     
   - Installed Applications and Patch Levels
     ```bash
