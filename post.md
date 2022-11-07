@@ -290,6 +290,11 @@
     ```bash
     schtasks /query /fo LIST /v
     ```
+  - Running services
+    ```bat
+    wmic service O get name,displayname,pathname,startmode
+    ```
+    
   - Installed Applications and Patch Levels
     ```bash
     wmic product get name, version, vendor
