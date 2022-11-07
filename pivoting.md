@@ -23,6 +23,10 @@ kali@kali:~$ sudo ssh -N -L 0.0.0.0:1337:10.0.0.2:80 root@10.0.0.1
 ```bash
 user1@debian:~$ ssh -N -R 10.11.0.4:2221:127.0.0.1:3306 kali@10.11.0.4
 ```
+
+```bash
+ssh -R 1122:10.5.5.11:22 -R 13306:10.5.5.11:3306 -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" kali@10.11.0.4
+```
 ### Windows
 #### plink
 ```bash
