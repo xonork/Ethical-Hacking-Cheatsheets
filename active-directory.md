@@ -201,4 +201,11 @@ NTLM : 75b60230a2394a812000dbfad8415965
 - If we have access to the DC we can obtain the password for all the admin user in the domain.
 - This can be achieved:
   1. Running Mimikatz
-  2. Stealing a copy of the **NTDS.
+  2. Stealing a copy of the **NTDS**.
+
+-  The _Directory Replication Service Remote Protocol_ uses _replication_ to synchtronize the domain controllers. Luckily the DC receiving the request for an update does not verigy that the request came from a known DC, but only that the associated SID has appropiate privileges.
+-  If we attempt to issue a rogue update request to a DC from a user who is a member of the Domain Admin group, it will succeed.
+  ```bat
+  mimikatz # lsadump::dcsync /user:Administrator
+  ```
+  
