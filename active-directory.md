@@ -130,13 +130,14 @@ PS C:\Tools\active_directory> Get-NetSession -ComputerName dc01
   ```bash
   bloodhound
   ```
-- Obtain data ([SharpHound.ps1](https://github.com/BloodHoundAD/BloodHound/blob/master/Collectors/SharpHound.ps1)
+- Obtain data ([SharpHound.ps1](https://github.com/BloodHoundAD/BloodHound/blob/master/Collectors/SharpHound.ps1))
   ```bash
   powershell -ep bypass SharpHound.ps1
   
   Invoke-BloodHound -CollectionMethod All -Domain [Dominio] -ZipFileName file.zip
   ```
-
+- Obtain data remotely [Bloodhound.py](https://github.com/fox-it/BloodHound.py)
+  
 # Obtain passwords/tickets
 - Dump SAM hashes remotly with [secretsdump.py](https://github.com/SecureAuthCorp/impacket/blob/master/examples/secretsdump.py)
   ```
