@@ -46,4 +46,8 @@ for port in {1..65535}; do
 done
 echo "Done"
 ```
+- Powershell Path
+
+![image](https://user-images.githubusercontent.com/43812413/202171576-ac20e99c-2c35-430e-844c-bc12dcb1c05e.png)
+
   
