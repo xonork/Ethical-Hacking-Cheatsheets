@@ -102,5 +102,18 @@ netsh advfirewall firewall add rule name="forward_port_rule" protocol=TCP dir=in
     # at our Kali
     htc --forward-port 8080 10.11.0.128:1234
     ```
-    
+## [chisel](https://github.com/jpillora/chisel)
+```
+# In Kali we start a server
+kali@kali:/opt/chisel# ./chisel server -p 8000 --reverse
+
+# In the Windows target machine we start a socks5 proxy tunnel
+chisel.exe client 1.1.1.1:8000 R:socks
+```
+- Another way to create a socks tunnel:
+  - `./chisel server -p 8000 --reverse` on local box, as usual.
+  - `./chisel client 1.1.1.1:8000 R:8001:127.0.0.1:9001` on target box. Now anything I send to localhost:8001 on kali will forward to localhost:9001 on target.
+  - `./chisel server -p 9001 --socks5` on target. Now I have a `chisel` server listening on 9001, in socks mode, and a way to get traffic to that port.
+  - `./chisel client localhost:8001` socks on Kali box. This connection is forwarded through the first tunnel and connects to the `chisel` server running on the box. Now my local host is listening on port 1080 (default, can change that with arguments) and will send traffic to target, and then proxy it outbound.
+  ![image](https://user-images.githubusercontent.com/43812413/206664069-a68cb7ac-7887-48ac-b4a8-dae124fb2b4a.png)
 
