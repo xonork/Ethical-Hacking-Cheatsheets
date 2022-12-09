@@ -117,3 +117,5 @@ chisel.exe client 1.1.1.1:8000 R:socks
   - `./chisel client localhost:8001` socks on Kali box. This connection is forwarded through the first tunnel and connects to the `chisel` server running on the box. Now my local host is listening on port 1080 (default, can change that with arguments) and will send traffic to target, and then proxy it outbound.
   ![image](https://user-images.githubusercontent.com/43812413/206664069-a68cb7ac-7887-48ac-b4a8-dae124fb2b4a.png)
 
+## [Secure Socket Funneling (SSF)](https://github.com/securesocketfunneling/ssf)
+
