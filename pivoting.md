@@ -1,4 +1,12 @@
 # Port Forwarding
+## [chisel](https://github.com/jpillora/chisel)
+```
+# In Kali we start a server
+kali@kali:/opt/chisel# ./chisel server -p 8000 --reverse
+
+# In Windows we start a client, and we specify the port to forward
+chisel.exe client 10.10.14.5:8000 R:910:localhost:910
+```
 ## [rinetd](https://github.com/samhocevar/rinetd)
 It is used for redirect any traffic received to an specific port
 - In its config file we have to specify the bindaddress, bindport, connectaddress and connectport:
