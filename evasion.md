@@ -93,10 +93,11 @@ Missing from the script is the payload of our choice, which can be generated usi
  
  ## Tools
  
- - shellter: It is a dynamic shellcode injection tool, and the first truly dynamic PE (portable executable) infector ever created.
+ - [shellter](https://github.com/ParrotSec/shellter): It is a dynamic shellcode injection tool, and the first truly dynamic PE (portable executable) infector ever created.
  - DSplit: It splits an executable in order to detect AV Signatures. This way we can remove them and execute the file on the target machine.
- - py2exe: This tool allow us to convert a Python script into an executable.
- - Veil: It is a tool designed to generate payloads that bypass common anti-virus solutions.
+ - [py2exe](https://github.com/py2exe/py2exe): This tool allow us to convert a Python script into an executable.
+ - [Veil](https://github.com/Veil-Framework/Veil): It is a tool designed to generate payloads that bypass common anti-virus solutions.
+ - [AppLocker Bypass](https://github.com/api0cradle/UltimateAppLockerByPassList): Most common and known techniques to bypass AppLocker
 
 
 
