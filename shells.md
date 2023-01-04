@@ -83,7 +83,8 @@ stty raw -echo
 fg                            
 
 							In reverse shell
-resetexport SHELL=bash
+reset xterm
+export SHELL=bash
 export TERM=xterm-256color
 stty rows <num> columns <cols>
 
@@ -98,7 +99,7 @@ script /dev/null -c bash Ctrl-Z
 stty raw -echo; fg                            
 
 							In reverse shell
-reset
+reset xterm
 Terminal type?: xterm 
 export TERM=xterm
 export shell=bash 
