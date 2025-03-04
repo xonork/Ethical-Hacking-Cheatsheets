@@ -12,3 +12,10 @@ Get-ADComputer -Filter * -Properties 'ms-Mcs-AdmPwd' | Where-Object { $_.'ms-Mcs
 https://book.hacktricks.wiki/en/windows-hardening/active-directory-methodology/laps.html
 
 https://viperone.gitbook.io/pentest-everything/everything/everything-active-directory/laps
+
+# Linux
+## List network topography
+```bash
+/proc/net/fib_trie
+```
+
